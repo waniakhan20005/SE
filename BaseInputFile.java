@@ -1,9 +1,9 @@
-// Import required classes for file operations and data handling
-import java.io.File;                     // Used to create a File object from a given file path
-import java.io.FileNotFoundException;   // Exception thrown when the file is not found
-import java.util.ArrayList;             // Allows us to use dynamic arrays (lists)
-import java.util.Arrays;                // Utility class to work with arrays (e.g., converting and streaming)
-import java.util.List;                  // Interface for a list of elements
+// Import required classes for file and data handling 
+import java.io.File;                     // Used to create a File object from a file path
+import java.io.FileNotFoundException;   // Exception thrown if file is not found 
+import java.util.ArrayList;             // allow usage of dynamic arrays 
+import java.util.Arrays;               
+import java.util.List;                  
 import java.util.Scanner;              // Used for reading input from the file
 
 /* Encapsulation in Action:
@@ -11,20 +11,16 @@ Protected Fields:
 protected List<String[]> content;
 protected String filePath;
 
-These fields store the internal state of the class (i.e., file data and the file’s location).
-By marking them as protected:
-
-They are hidden from outside classes like Main.java or DataMerger.java
-
-But still accessible within subclasses (like NameFile and CourseFile)
-
-Why it matters: This protects internal data from accidental changes and keeps file-handling logic self-contained.
+These fields store the internal state of the class. 
+Marking them protected: 
+- They are hidden from outside classes like Main.java or DataMerger.java
+- They are still accessible within subclasses
+This is important because this protects internal data from changes  keeps file handling logic will be self contained. 
 -------------------------------------------
 Public Getter Method:
 public List<String[]> getContent()
-
-This method provides read-only access to the stored file data.
-Instead of exposing the content list directly (which would allow anyone to modify it), we expose it through a method.
+This method has read only access to
+ the stored file data. Instead of exposing the content list directly, we expose it through a method.
 
 Why it matters: This is a core principle of encapsulation — giving controlled access to internal data while preventing direct modification.
 
