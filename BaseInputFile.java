@@ -18,7 +18,7 @@ They are hidden from outside classes like Main.java or DataMerger.java
 
 But still accessible within subclasses (like NameFile and CourseFile)
 
-➤ Why it matters: This protects internal data from accidental changes and keeps file-handling logic self-contained.
+Why it matters: This protects internal data from accidental changes and keeps file-handling logic self-contained.
 -------------------------------------------
 Public Getter Method:
 public List<String[]> getContent()
@@ -26,9 +26,8 @@ public List<String[]> getContent()
 This method provides read-only access to the stored file data.
 Instead of exposing the content list directly (which would allow anyone to modify it), we expose it through a method.
 
-➤ Why it matters: This is a core principle of encapsulation — giving controlled access to internal data while preventing direct modification.
+Why it matters: This is a core principle of encapsulation — giving controlled access to internal data while preventing direct modification.
 
-Tip: If you wanted stronger protection, you could return a defensive copy of the list.
 --------------------------------------
 Public readFile() Method:
 public void readFile() throws FileNotFoundException
@@ -36,7 +35,7 @@ public void readFile() throws FileNotFoundException
 This method reads the file and fills in the content field internally.
 External code (like Main) doesn’t need to know how the file is read — they just call readFile(), and the class handles the details.
 
-➤ Why it matters: This encapsulates the logic of file reading, so it’s reusable and harder to misuse. You’re enforcing a consistent way to load data across different file types.
+Why it matters: This encapsulates the logic of file reading, so it’s reusable and harder to misuse. You’re enforcing a consistent way to load data across different file types.
 
 In summary, BaseInputFile demonstrates good encapsulation by:
 
