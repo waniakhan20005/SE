@@ -1,6 +1,6 @@
-// Import necessary classes for handling file-related exceptions
-import java.io.FileNotFoundException;
-import java.io.IOException;
+/* Import necessary classes for handling file-related exceptions
+* import java.io.FileNotFoundException;
+* import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,4 +39,25 @@ public class Main {
             System.err.println("Unexpected error: " + e.getMessage());
         }
     }
+} */
+
+// Main.java
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // 1. Construct your parsers (will throw if path is invalid)
+        NameFile    names   = new NameFile("NameFile.txt");
+        CourseFile  courses = new CourseFile("CourseFile.txt");
+
+        // 2. Read both files (will throw FileNotFoundException or IllegalArgumentException)
+        names.readFile();
+        courses.readFile();
+
+        // 3. Merge and write output (will throw IOException if the write fails, or runtime on bad data)
+        DataMerger merger = new DataMerger(names, courses);
+        merger.mergeAndWriteOutput("MergedOutput.txt");
+        //
+        System.out.println("Data merged successfully.");
+    }
 }
+
